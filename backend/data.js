@@ -1,6 +1,6 @@
 const data = {
         products: [{
-            id:'1',
+            _id:'1',
             name: 'Slim Shirt',
             category:'Shirts',
             image: '/images/d1.jpg',
@@ -11,7 +11,7 @@ const data = {
             countInStock: 6,
         },
         {
-            id:'2',
+            _id:'2',
             name: 'Fit Shirt',
             category:'Shirts',
             image: '/images/d1.jpg',
@@ -22,7 +22,7 @@ const data = {
             countInStock: 6,
         },
         {
-            id:'3',
+            _id:'3',
             name: 'Best pant',
             category:'Pants',
             image: '/images/d1.jpg',
@@ -33,7 +33,7 @@ const data = {
             countInStock: 0,
         },
         {
-            id:'4',
+            _id:'4',
             name: 'Best pant',
             category:'Pants',
             image: '/images/d1.jpg',

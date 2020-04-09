@@ -3,6 +3,7 @@ import data from './data';
 import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import userRoute from './routes/userRoute';
 
 dotenv.config();
@@ -19,12 +20,14 @@ mongoose.connect(mongodburl, {
 
 const app = express();
 
+app.use(bodyParser.json());
+
 app.use("/api/users", userRoute)
 
 
 app.get("/api/products/:id", (req, res)=> {
     const productId = req.params.id;
-    const product = data.products.find(x=>x.id === productId)
+    const product = data.products.find(x=>x._id === productId)
     
     
     if(product){
