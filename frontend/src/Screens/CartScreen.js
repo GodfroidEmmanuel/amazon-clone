@@ -56,7 +56,7 @@ function CartScreen(props){
                     </div>
                         <div className="cart-name">
                             <div>
-                                <Link to={"/products/" + item.product}>
+                                <Link to={"/product/" + item.product}>
                                 {item.name}
                                 </Link>
                             </div>

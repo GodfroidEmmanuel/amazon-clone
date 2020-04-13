@@ -12,6 +12,8 @@ function ProductScreen(props) {
     const {product, loading, error} = productDetails;
     const dispatch = useDispatch();
 
+    console.log(product);
+    
     useEffect(() => {
         dispatch(detailsProduct(props.match.params.id));
         return () => {
@@ -65,8 +67,11 @@ error? <div>{error}</div>:
             </li>
             <li>
                 Qty: <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                    
                     {[...Array(product.countInStock).keys()].map(x => 
                         <option key={x + 1} value={x + 1}>{x + 1}</option>
+                        
+                    
                     )}
                 </select>
             </li>
