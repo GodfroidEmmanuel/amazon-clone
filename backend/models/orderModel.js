@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 
-const shippingSchema = new mongoose.Schema({
+const shippingSchema = {
     address: {type: String, required: true},
     city: {type: String, required: true},
     postalCode: {type: String, required: true},
     country: {type: String, required: true},
-})
+}
 
-const paymentSchema = mongoose.Schema({
+const paymentSchema = {
     paymentMethod: {type: String, required:true}
-})
+}
 
 const orderItemSchema = new mongoose.Schema({
     name: {type: String, required: true},
@@ -22,7 +22,7 @@ const orderItemSchema = new mongoose.Schema({
 })
 
 const orderSchema = new mongoose.Schema({
-    user: {type: mongoose.Schema.Types, ref: 'User', required: true },
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     orderItems: [orderItemSchema],
     shipping: shippingSchema,
     payment: paymentSchema,

@@ -11,8 +11,6 @@ function ProductScreen(props) {
     const productDetails = useSelector(state => state.productDetails);
     const {product, loading, error} = productDetails;
     const dispatch = useDispatch();
-
-    console.log(product);
     
     useEffect(() => {
         dispatch(detailsProduct(props.match.params.id));
