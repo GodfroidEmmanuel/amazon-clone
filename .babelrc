@@ -4,7 +4,11 @@
             "@babel/preset-env"
         ]
     ],
+
     "plugins": [
-        "@babel/plugin-transform-runtime"
+        ["transform-runtime", {
+          "polyfill": false,
+          "regenerator": true
+        }]
       ]
 }
