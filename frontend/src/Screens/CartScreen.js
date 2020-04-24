@@ -24,7 +24,7 @@ function CartScreen(props){
         if(productId){
             dispatch(addToCart(productId, qty));
         }
-    }, [])
+    }, [dispatch, productId, qty])
 
     const checkoutHandler = () => {
         props.history.push("/signin?redirect=shipping");
@@ -48,9 +48,12 @@ function CartScreen(props){
                     Cart is empty
                 </div>
                 :
+                console.log(cartItems),
+                
                 cartItems.map( item =>
                     
-                    <li key={item._id}>
+                    <li key={item.product
+                    }>
                     <div className="cart-image">
                         <img src={item.image} alt="product" />
                     </div>
@@ -64,9 +67,11 @@ function CartScreen(props){
                             <div>
                                 Qty: 
                             <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
-                                {[...Array(item.countInStock).keys()].map(x => 
-                            <option key={x + 1} value={x + 1}>{x + 1}</option>
-                                )}
+                            <option key={1} value={1}>{1}</option>
+                            <option key={2} value={2}>{2}</option>
+                            <option key={3} value={3}>{3}</option>
+                            <option key={4} value={4}>{4}</option>
+                            <option key={5} value={5}>{5}</option>
                                 </select>
                                 <button type="button" className="button" onClick={() =>removeFromCartHandler(item.product)}>
                                     Delete

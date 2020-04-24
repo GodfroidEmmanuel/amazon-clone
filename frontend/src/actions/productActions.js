@@ -24,7 +24,7 @@ const saveProduct = (product) => async(dispatch, getState) => {
 
             const {data} = await Axios.post("/api/products", product, {
                 headers:{
-                    Authorization: 'Bearer ' + userInfo.token
+                    Authorization: 'Bearer' + userInfo.token
                 }
             });
 

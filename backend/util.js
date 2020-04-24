@@ -7,13 +7,13 @@ const getToken = (user) => {
     email: user.email,
     isAdmin: user.isAdmin,
 
-  }, config.JWT_SECRET, {
-    expiresIn: '48h'
-  })
+  }, config.JWT_SECRET)
 }
 
 const isAuth = (req, res, next) => {
   const token = req.headers.authorization;
+  console.log(token);
+  
 
   if (token) {
     const onlyToken = token.slice(6, token.length);

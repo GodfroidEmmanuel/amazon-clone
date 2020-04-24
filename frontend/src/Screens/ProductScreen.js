@@ -9,13 +9,14 @@ function ProductScreen(props) {
   const productDetails = useSelector(state => state.productDetails);
   const { product, loading, error } = productDetails;
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     dispatch(detailsProduct(props.match.params.id));
     return () => {
       //
     };
-  }, []);
+  }, [dispatch, props.match.params.id]);
 
   const handleAddToCart = () => {
     props.history.push("/cart/" + props.match.params.id + "?qty=" + qty)
@@ -61,9 +62,9 @@ function ProductScreen(props) {
                 </li>
                 <li>
                   Qty: <select value={qty} onChange={(e) => { setQty(e.target.value) }}>
-                    {[...Array(product.countInStock).keys()].map(x =>
-                      <option key={x + 1} value={x + 1}>{x + 1}</option>
-                    )}
+                  <option key={1} value={1}>{1}</option>
+                  <option key={2} value={2}>{2}</option>
+                  <option key={3} value={3}>{3}</option>
                   </select>
                 </li>
                 <li>

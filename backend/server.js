@@ -8,7 +8,7 @@ import userRoute from './routes/userRoute';
 import productRoute from './routes/productRoute';
 import orderRoute from './routes/orderRoute';
 
-dotenv.config();
+
 
 const mongodburl = config.MONGODB_URL;
 mongoose.connect(mongodburl, {

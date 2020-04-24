@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
@@ -9,7 +8,7 @@ function PlaceOrderScreen(props) {
 
   const cart = useSelector(state => state.cart);
   const orderCreate = useSelector(state => state.orderCreate);
-  const {loading, success, error, order} = orderCreate;
+  const {success, order} = orderCreate;
 
   const { cartItems, shipping, payment } = cart;
   
@@ -34,11 +33,7 @@ function PlaceOrderScreen(props) {
       props.history.push("/order/" + order._id);
     }
 
-  }, [success]);
-
-  const checkoutHandler = () => {
-    props.history.push("/signin?redirect=shipping");
-  }
+  }, [success, props.history, order._id]);
 
   return <div>
     <CheckoutSteps step1 step2 step3 step4 ></CheckoutSteps>
