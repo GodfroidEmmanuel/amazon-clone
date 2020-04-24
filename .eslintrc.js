@@ -11,7 +11,7 @@ module.exports =
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['react', "import"],
+  plugins: ['react'],
   rules: {
     "no-underscore-dangle": 0
   }
