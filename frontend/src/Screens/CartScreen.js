@@ -48,7 +48,7 @@ function CartScreen(props){
                     Cart is empty
                 </div>
                 :
-
+                console.log(cartItems),
                 
                 cartItems.map( item =>
                     

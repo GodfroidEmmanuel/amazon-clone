@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
-
+import { signin } from '../actions/userActions';
+import { Link } from 'react-router-dom';
 
 
 function ProductsScreen(props) {
@@ -16,13 +17,13 @@ function ProductsScreen(props) {
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
   const productList = useSelector(state => state.productList);
-  const {products} = productList;
+  const {loading, products, error} = productList;
   
   const productSave = useSelector(state => state.productSave);
   const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
 
   const productDelete = useSelector(state => state.productDelete);
-  const {  success: successDelete} = productDelete;
+  const { loading: loadingDelete, success: successDelete, error: errorDelete } = productDelete;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function ProductsScreen(props) {
     return () => {
       //
     };
-  }, [successSave, successDelete, dispatch]);
+  }, [successSave, successDelete]);
 
   const openModal = (product) => {
     setModalVisible(true);

@@ -36,7 +36,7 @@ function ProfileScreen(props) {
     return () => {
 
     };
-  }, [userInfo, dispatch])
+  }, [userInfo])
 
   return <div className="profile">
     <div className="profile-info">
@@ -67,7 +67,7 @@ function ProfileScreen(props) {
             </li>
             <li>
               <label htmlFor="password">Password</label>
-              <input defaultValue={password} type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
+              <input value={password} type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
               </input>
             </li>
 

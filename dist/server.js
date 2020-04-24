@@ -4,6 +4,10 @@ var _express = _interopRequireDefault(require("express"));
 
 var _path = _interopRequireDefault(require("path"));
 
+var _data = _interopRequireDefault(require("./data"));
+
+var _dotenv = _interopRequireDefault(require("dotenv"));
+
 var _config = _interopRequireDefault(require("./config"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
@@ -46,7 +50,7 @@ app.get("/api/config/paypal", (req, res) => {
 //     res.send(data.products);
 // });
 
-app.use(_express.default.static(_path.default.join(__dirname, '/../frontend/build')));
+aapp.use(_express.default.static(_path.default.join(__dirname, '/../frontend/build')));
 app.get('*', (req, res) => {
   res.sendFile(_path.default.join(`${__dirname}/../frontend/build/index.html`));
 });

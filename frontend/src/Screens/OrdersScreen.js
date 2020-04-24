@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { listOrders, deleteOrder } from '../actions/orderActions';
+import { saveOrder, listOrders, deleteOrder } from '../actions/orderActions';
 import { Link } from 'react-router-dom';
 
 
@@ -8,12 +8,12 @@ function OrdersScreen(props) {
 
 
   const orderList = useSelector(state => state.orderList);
-  const {loading, orders} = orderList;
+  const {loading, orders, error} = orderList;
   
  
 
   const orderDelete = useSelector(state => state.orderDelete);
-  const { success: successDelete } = orderDelete;
+  const { loading: loadingDelete, success: successDelete, error: errorDelete } = orderDelete;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function OrdersScreen(props) {
     return () => {
       //
     };
-  }, [successDelete, dispatch]);
+  }, [successDelete]);
 
 
 
