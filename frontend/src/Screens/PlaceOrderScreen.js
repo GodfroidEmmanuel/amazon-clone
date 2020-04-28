@@ -8,7 +8,7 @@ function PlaceOrderScreen(props) {
 
   const cart = useSelector(state => state.cart);
   const orderCreate = useSelector(state => state.orderCreate);
-  const {success, order} = orderCreate;
+  const {loading, success, error, order} = orderCreate;
 
   const { cartItems, shipping, payment } = cart;
   
@@ -18,7 +18,7 @@ function PlaceOrderScreen(props) {
     props.history.push("/payment");
   }
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const shippingPrice = itemsPrice > 100 ? 0 : 10;
+  const shippingPrice = itemsPrice > 100 ? 0 : 0.1;
   const taxPrice = 0.15 * itemsPrice;
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
 
@@ -34,8 +34,6 @@ function PlaceOrderScreen(props) {
     }
 
   }, [success, props.history]);
-  console.log(props.history);
-  
 
   return <div>
     <CheckoutSteps step1 step2 step3 step4 ></CheckoutSteps>
@@ -73,7 +71,7 @@ function PlaceOrderScreen(props) {
           </div>
                 :
                 cartItems.map(item =>
-                  <li key={item.product}>
+                  <li>
                     <div className="cart-image">
                       <img src={item.image} alt="product" />
                     </div>
