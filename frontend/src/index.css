@@ -1,3 +1,4 @@
+ 
 html{
   font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
   box-sizing: border-box;
@@ -397,20 +398,16 @@ tbody>tr:nth-child(odd){
 .dropdown-content{
   position: absolute;
   display: none;
-  right:0;
+  right:-1.8rem;
   padding: 1rem;
   list-style-type: none;
   z-index: 1;
   background-color: #203040;
   margin:0;
-  margin-top:0.6rem;
+  margin-top:0.4rem;
 }
 .dropdown:hover .dropdown-content{
   display: block;
-  top: 2.7rem;
-  right: -2rem;
-  margin: 0;
-
 }
 
 /* filter */
@@ -420,7 +417,7 @@ tbody>tr:nth-child(odd){
   list-style-type: none;
   padding: 0;
   margin: 1rem auto;
-  max-width: 45rem;
+  max-width: 50rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -446,4 +443,3 @@ tbody>tr:nth-child(odd){
 .categories a:hover{
   background-color: #c0c0c0;
 }
-

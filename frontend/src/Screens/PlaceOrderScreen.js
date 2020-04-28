@@ -18,7 +18,7 @@ function PlaceOrderScreen(props) {
     props.history.push("/payment");
   }
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const shippingPrice = itemsPrice > 100 ? 0 : 0.1;
+  const shippingPrice = itemsPrice > 100 ? 0 : 10;
   const taxPrice = 0.15 * itemsPrice;
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
 
@@ -33,7 +33,9 @@ function PlaceOrderScreen(props) {
       props.history.push("/order/" + order._id);
     }
 
-  }, [success, props.history, order._id]);
+  }, [success, props.history]);
+  console.log(props.history);
+  
 
   return <div>
     <CheckoutSteps step1 step2 step3 step4 ></CheckoutSteps>
@@ -71,7 +73,7 @@ function PlaceOrderScreen(props) {
           </div>
                 :
                 cartItems.map(item =>
-                  <li>
+                  <li key={item.product}>
                     <div className="cart-image">
                       <img src={item.image} alt="product" />
                     </div>
