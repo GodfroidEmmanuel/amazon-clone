@@ -6,7 +6,7 @@ import PaypalButton from '../components/PaypalButton';
 function OrderScreen(props) {
 
   const orderPay = useSelector(state => state.orderPay);
-  const { loading: loadingPay, success: successPay } = orderPay;
+  const { loading: loadingPay, success: successPay, error: errorPay } = orderPay;
   const dispatch = useDispatch();
   useEffect(() => {
     if (successPay) {
