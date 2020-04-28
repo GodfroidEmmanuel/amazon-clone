@@ -16,7 +16,7 @@ function HomeScreen(props) {
     return () => {
       //
     };
-  }, [category, dispatch]);
+  }, [category]);
 
   const submitHandler = (e) => {
     e.preventDefault();

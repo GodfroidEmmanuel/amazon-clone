@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { savePayment } from "../actions/cartActions"
 import CheckoutSteps from '../components/CheckoutSteps';
 
